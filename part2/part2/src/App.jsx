@@ -17,46 +17,50 @@ const Header = ({course}) => {
   )
 }
 
-const Content = ({part1, part2, part3}) => {
+const Content = ({parts}) => {
   return (
     <>
-      <Part part={part1.name} exercise={part1.exercises}/>
-      <Part part={part2.name} exercise={part2.exercises}/>
-      <Part part={part3.name} exercise={part3.exercises}/>
+      <Part part={parts[0].name} exercise={parts[0].exercises}/>
+      <Part part={parts[1].name} exercise={parts[1].exercises}/>
+      <Part part={parts[2].name} exercise={parts[2].exercises}/>
     </>
   )
 }
 
-const Total = ({part1, part2, part3}) => {
+const Total = ({parts}) => {
   return (
     <>
-    <p>Number of exercises {part1.exercises + part2.exercises + part3.exercises}</p>
+    <p>Number of exercises {parts[0].exercises + parts[1].exercises + parts[2].exercises}</p>
     </>
   )
 }
 
 const App = () => {
   const course = 'Half Stack Application Development'
-  const part1 = {
+  const parts = [
+  {
     name: 'Fundamentals of React',
     exercises: 10
-  }
-  const part2 = {
+  },
+  {
     name: 'Using props to pass data',
     exercises: 7
-  }
-  const part3 = {
+  },
+  {
     name: 'State of a component',
-    exercises: 14
+    exercises: 15
   }
+]
 
   return (
     <div>
       <Header course={course} />
-      <Content part1={part1} part2={part2} part3={part3}/>
-      <Total part1={part1} part2={part2} part3={part3}/>
+      <Content parts={parts}/>
+      <Total parts={parts}/>
     </div>
   )
 }
 
 export default App
+
+//left off at 1.4 
